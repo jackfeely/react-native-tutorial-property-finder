@@ -2,6 +2,8 @@
 
 var React = require('react');
 var ReactNative = require('react-native');
+var SearchPage = require('./SearchPage');
+// var SearchResults = require('./SearchResults');
 
 var styles = ReactNative.StyleSheet.create({
   text: {
@@ -9,12 +11,22 @@ var styles = ReactNative.StyleSheet.create({
     backgroundColor: 'white',
     fontSize: 30,
     margin: 80
+  },
+  container: {
+    flex: 1
   }
 });
 
 class PropertyFinderApp extends React.Component {
   render() {
-    return <ReactNative.Text style={styles.text}>Hello world! (Again)</ReactNative.Text>;
+    return (
+      <ReactNative.NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          title: 'Property Finder',
+          component: SearchPage,
+        }}/>
+    );
   }
 }
 
